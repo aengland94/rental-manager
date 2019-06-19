@@ -1,5 +1,6 @@
 const express = require('express')
 const path = require('path')
+const admin = require('./admin.router')
 const PORT = process.env.PORT || 5000
 const { Pool } = require('pg');
 const pool = new Pool({
@@ -12,6 +13,7 @@ express()
   .set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .get('/', (req, res) => res.render('pages/index'))
+  .use('/admin', admin)
   .get('/db', async (req, res) => {
      try {
         const client = await pool.connect();
