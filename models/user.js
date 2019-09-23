@@ -8,3 +8,11 @@ module.exports.getAllUsers = async () => {
 
    return (result) ? result.rows : null;
 }
+
+module.exports.getDbTest = async () => {
+   const client = await pool.connect();
+   const result = await client.query('SELECT * FROM test_table');   
+   client.release();
+
+   return (result) ? result.rows : null;
+}
