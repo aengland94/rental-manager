@@ -63,7 +63,6 @@ router.get('/dbTest02', async (req, res) => {
      try {
         const results = { 'results': User.getDbTest() };
         res.render('pages/db', results);
-        client.release();
      } catch (err) {
         console.error(err);
         res.send("Error " + err);
