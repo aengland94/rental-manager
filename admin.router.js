@@ -61,7 +61,19 @@ router.get('/dbTest01', async (req, res) => {
 
 router.get('/dbTest02', async (req, res) => {
      try {
-        const results = { 'results': User.getDbTest() };
+        const results = { 'results': await User.getDbTest() };
+        res.render('pages/db', results);
+     } catch (err) {
+        console.error(err);
+        res.send("Error " + err);
+     }
+  })
+
+router.get('/dbTest03', async (req, res) => {
+     try {
+        const result = await pool.query('SELECT * FROM test_table');
+        const results = { 'results': (result) ? result.rows : null };
+        
         res.render('pages/db', results);
      } catch (err) {
         console.error(err);
