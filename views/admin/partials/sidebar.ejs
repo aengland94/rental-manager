@@ -1,0 +1,46 @@
+<div class="col-lg-2 col-md-3 sidebar">
+    <div class="clearfix">&nbsp;</div>
+
+    <!-- sidebar menu -->
+    <div id="menu">
+        <div class="row btn btn-default sidebar-btn"> <span>Menu <i class="fa fa-chevron-down"></i></span></div>
+    </div>
+    <div id="menuOpts">
+
+        <!-- settings dropdown -->
+        <div class="row btn btn-default sidebar-btn" id="settings"><span><i class="fa fa-cog" aria-hidden="true"></i> Settings <i class="fa fa-chevron-down"></i></span></div>
+        <div id="settingsOpts">
+            <a class="row btn btn-default sidebar-btn" href="/admin/landlords/"><span>&emsp; Landlords</span></a>
+            <a class="row btn btn-default sidebar-btn" href="/admin/rentals/"><span>&emsp; Rentals</span></a>
+            <a class="row btn btn-default sidebar-btn" href="/admin/tenants/"><span>&emsp; Tenants</span></a>
+            <a class="row btn btn-default sidebar-btn" href="/admin/units/"><span>&emsp; Units</span></a>
+            <a class="row btn btn-default sidebar-btn" href="/admin/users/"><span>&emsp; Users</span></a>
+        </div>
+        <!-- end settings dropdown -->
+
+        <!-- admin dropdown -->
+        <div class="row btn btn-default sidebar-btn" id="admin"><span><i class="fa fa-lock" aria-hidden="true"></i> Admin <i class="fa fa-chevron-down"></i></span></div>
+        <div id="adminOpts">  
+            <a class="row btn btn-default sidebar-btn" href="/admin/report/"><span>&emsp;<i class="fa fa-table" aria-hidden="true"></i> Report</span></a>
+        </div>
+        <!-- end settings dropdown -->   
+    </div>
+    <!-- end sidebar menu -->
+</div>
+
+
+<script>
+    $(function(){
+        $('#admin').click(function() {
+            $('#adminOpts').toggle('slow');
+        });
+
+        $('#settings').click(function() {
+            $('#settingsOpts').toggle('slow');
+        });
+
+        $('#menu').click(function() {
+            $('#menuOpts').toggle('slow');
+        });
+    });
+</script>

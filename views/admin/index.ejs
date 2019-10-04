@@ -1,15 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <% include partials/header.ejs %>
-  <title>Rental Manager App</title>
-</head>
+    <title>Rental Manager App</title>
 
+    <% include partials/header.ejs %>
+
+</head>
 <body>
 
-  <% include partials/nav.ejs %>
+    <% include partials/nav.ejs %>
 
-<h1><%= title %></h1>
+    <div class="container">
+        <div class="row">
+
+            <% include partials/sidebar.ejs %>
+
+            <div class="main_col col-md" role="main">
+                <div class="row">
+                    <h1 class="col-12"><%= title %></h1>
+                </div>
+
+                <div class="row"></div>
+                <br />
+            </div>
+        </div>
+    </div>
 
 
 </body>
