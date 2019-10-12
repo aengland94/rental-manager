@@ -27,7 +27,7 @@
 
                     <% if (results) { %>
                     <div class="col-12 list-group">
-                        <div class="row list-group-item list-group-item-dark header">
+                        <div class="list-group-item list-group-item-dark header">
                             <div class="row">
                                 <div class="col">"Name"</div> 
                                 <div class="col">Vacant?</div> 
@@ -38,7 +38,7 @@
                         <a href=<%= "/admin/rental/" +  r.id %> class="list-group-item list-group-item-action">
                             <div class="row">
                                 <div class="col"><%= r.display_name %></div> 
-                                
+
                                 <% if (r.vacant) { %>
                                 <div class="col">Yes</div> 
                                 <% } else { %>
