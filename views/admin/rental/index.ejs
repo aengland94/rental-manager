@@ -21,7 +21,7 @@
                 </div>
 
                 <div class="row">
-                    <a href="/admin/landlord/create" class="col-4 btn">Create New Landlord</a>
+                    <a href="/admin/rental/create" class="col-4 btn">Create New Rental</a>
                 </div>
                 <div class="row">
 
@@ -29,25 +29,29 @@
                     <div class="col-12 list-group">
                         <div class="row list-group-item list-group-item-dark header">
                             <div class="row">
-                                <div class="col">First Name</div> 
-                                <div class="col">Last Name</div> 
-                                <div class="col">Email</div>
+                                <div class="col">"Name"</div> 
+                                <div class="col">Vacant?</div> 
                             </div>                                    
                         </div>
                         
                         <% results.forEach(function(r) { %>
-                        <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
+                        <a href=<%= "/admin/rental/" +  r.id %> class="list-group-item list-group-item-action">
                             <div class="row">
-                                <div class="col"><%= r.first_name %></div> 
-                                <div class="col"><%= r.last_name %></div> 
-                                <div class="col"><%= r.email %></div> 
+                                <div class="col"><%= r.display_name %></div> 
+                                
+                                <% if (r.vacant) { %>
+                                <div class="col">Yes</div> 
+                                <% } else { %>
+                                <div class="col">No</div> 
+                                <% } %>
+
                             </div>                                   
                         </a>
                         <% }); %>
                         
                     </div>
                     <% } else { %>
-                    <div class="col-12"><div class="row">No users to display.</div></div>
+                    <div class="col-12"><div class="row">No rentals to display.</div></div>
                     <% } %>
 
                 </div>

@@ -27,17 +27,21 @@
 
                     <% if (results) { %>
                     <div class="col-12 list-group">
-                        <div class="row list-group-item header">
-                            <div class="col">First Name</div> 
-                            <div class="col">Last Name</div> 
-                            <div class="col">Email</div>                                    
+                        <div class="row list-group-item list-group-item-dark header">
+                            <div class="row">
+                                <div class="col">First Name</div> 
+                                <div class="col">Last Name</div> 
+                                <div class="col">Email</div>
+                            </div>                                    
                         </div>
                         
                         <% results.forEach(function(r) { %>
-                        <a href=<%= "/admin/tenant/" +  r.id %> class="row list-group-item list-group-item-action">
-                            <div class="col"><%= r.first_name %></div> 
-                            <div class="col"><%= r.last_name %></div> 
-                            <div class="col"><%= r.email %></div>                                    
+                        <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
+                            <div class="row">
+                                <div class="col"><%= r.first_name %></div> 
+                                <div class="col"><%= r.last_name %></div> 
+                                <div class="col"><%= r.email %></div> 
+                            </div>                                   
                         </a>
                         <% }); %>
                         
