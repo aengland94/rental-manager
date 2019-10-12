@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= title %></title>
+
+    <% include ../partials/header.ejs %>
+
+</head>
+<body>
+
+    <% include ../partials/nav.ejs %>
+
+    <div class="container">
+        <div class="row">
+
+            <% include ../partials/sidebar.ejs %>
+
+            <div class="main_col col-md" role="main">
+                <div class="row">
+                    <h1 class="col-12"><%= title %></h1>
+                </div>
+
+                <div class="row">
+                    <a href="/admin/tenant/create" class="col-4 btn">Create New User</a>
+                </div>
+                <div class="row">
+
+                    <% if (results) { %>
+                    <div class="col-12 list-group">
+                        <div class="row list-group-item header">
+                            <div class="col">First Name</div> 
+                            <div class="col">Last Name</div> 
+                            <div class="col">Email</div>                                    
+                        </div>
+                        
+                        <% results.forEach(function(r) { %>
+                        <a href=<%= "/admin/user/" +  r.id %> class="row list-group-item list-group-item-action">
+                            <div class="col"><%= r.first_name %></div> 
+                            <div class="col"><%= r.last_name %></div> 
+                            <div class="col"><%= r.email %></div>                                    
+                        </a>
+                        <% }); %>
+                        
+                    </div>
+                    <% } else { %>
+                    <div class="col-12"><div class="row">No users to display.</div></div>
+                    <% } %>
+
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
