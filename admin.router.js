@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const User = require('./models/user');
+const UserController = require('./contollers/user.controller');
 const Landlord = require('./models/landlord');
 const Unit = require('./models/unit');
 const Rental = require('./models/rental');
@@ -13,6 +14,8 @@ router.use(function adminAuth (req, res, next) {
 })
 
 router.get('/', (req, res) => res.render('admin/index', { title: "Dashboard" }))
+
+router.get('/test', UserController.index)
 
 router.get('/user', async (req, res) => {
      try {
