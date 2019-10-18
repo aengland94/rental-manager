@@ -14,7 +14,9 @@ router.use(function adminAuth (req, res, next) {
 
 router.get('/', (req, res) => res.render('admin/index', { title: "Dashboard" }))
 
-router.get('/user', UserController.index)
+router.route('/user')
+      .get(UserController.index)
+      .post(UserController.create)
 router.get('/user/:id', UserController.show)
 router.get('/landlord', LandlordController.index)
 router.get('/landlord/:id', LandlordController.show)
