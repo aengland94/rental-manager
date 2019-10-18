@@ -15,23 +15,22 @@ module.exports.show = (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
-   console.log('Starting to create new User');
    let first_name, last_name, email, username, password;
 
-   if (req.query.first_name) {
-      first_name = req.query.first_name;
+   if (req.body.first_name) {
+      first_name = req.body.first_name;
    }
 
-   if (req.query.last_name) {
-      last_name = req.query.last_name;
+   if (req.body.last_name) {
+      last_name = req.body.last_name;
    }
 
-   if (req.query.email) {
-      email = req.query.email;
+   if (req.body.email) {
+      email = req.body.email;
    }
 
-   if (req.query.username) {
-      username = req.query.username;
+   if (req.body.username) {
+      username = req.body.username;
    }
 
    // TODO: auto-generate temp password for new users
@@ -40,7 +39,7 @@ module.exports.create = async (req, res) => {
    if (first_name && last_name && email && username && password) {
       await User.create(first_name, last_name, email, username, password);
    }
-   console.log('Finished creating new User');
+   console.log('Redirecting to /admin/user');
 
-   res.redirect('/admin/user/');
+   res.redirect('/admin/user');
 }
