@@ -7,6 +7,8 @@ express()
    .use(express.static(path.join(__dirname, 'public')))
    .set('views', path.join(__dirname, 'views'))
    .set('view engine', 'ejs')
+   .use(express.json()) // for parsing application/json
+   .use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
    .get('/', (req, res) => res.render('pages/index'))
    .use('/admin', admin)
    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
