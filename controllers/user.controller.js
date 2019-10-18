@@ -15,6 +15,7 @@ module.exports.show = (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
+   console.log('Starting to create new User');
    let first_name, last_name, email, username, password;
 
    if (req.query.first_name) {
@@ -39,6 +40,7 @@ module.exports.create = async (req, res) => {
    if (first_name && last_name && email && username && password) {
       await User.create(first_name, last_name, email, username, password);
    }
+   console.log('Finished creating new User');
 
    res.redirect('/admin/user/');
 }

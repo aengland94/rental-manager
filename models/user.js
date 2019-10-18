@@ -18,10 +18,12 @@ module.exports.getAllUsersSafe = async () => {
 }
 
 module.exports.create = async (first_name, last_name, email, username, password) => {
+   console.log('create new User in model');
    const text = 'INSERT INTO users (first_name, last_name, email, username, ' +
       'password, created_by) VALUES ($1, $2, $3, $4, $5, $6)';
    // TODO: have created_by be the user currently signed in
    const values = [ first_name, last_name, email, username, password, 1 ];
 
    await model.query2(text, values);
+   console.log('create new User query complete');
 }
