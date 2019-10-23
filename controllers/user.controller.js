@@ -37,7 +37,9 @@ module.exports.create = async (req, res) => {
    password = 'secret';
 
    if (first_name && last_name && email && username && password) {
-      await User.create(first_name, last_name, email, username, password);
+      // TODO: have created_by be the user currently signed in
+      await User.create(first_name, last_name, email, username, password, 1);
+      // TODO: send activation email to new user
    }
    console.log('Redirecting to /admin/user');
 

@@ -16,3 +16,11 @@ module.exports.getAllRentalsSafe = async () => {
 
    return (result) ? result.rows : null;
 }
+
+module.exports.create = async (display_name, apt_number, description, rate, unit_id, cb) => {
+   const text = 'INSERT INTO users (display_name, apt_number, description, rate, ' +
+      'unit_id, created_by) VALUES ($1, $2, $3, $4, $5, $6)';
+   const values = [ display_name, apt_number, description, rate, unit_id, cb ];
+
+   await model.query2(text, values);
+}

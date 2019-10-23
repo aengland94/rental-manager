@@ -15,3 +15,11 @@ module.exports.getAllUnitsSafe = async () => {
 
    return (result) ? result.rows : null;
 }
+
+module.exports.create = async (street_address, city, state, zip_code, landlord_id, cb) => {
+   const text = 'INSERT INTO users (street_address, city, state, zip_code, ' +
+      'landlord_id, created_by) VALUES ($1, $2, $3, $4, $5, $6)';
+   const values = [ street_address, city, state, zip_code, landlord_id, cb ];
+
+   await model.query2(text, values);
+}

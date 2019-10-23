@@ -1,60 +1,87 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title><%= title %></title>
+   <title><%= title %></title>
 
-    <% include ../partials/header.ejs %>
+   <% include ../partials/header.ejs %>
 
 </head>
 <body>
 
-    <% include ../partials/nav.ejs %>
+   <% include ../partials/nav.ejs %>
 
-    <div class="container">
-        <div class="row">
+   <div class="container">
+      <div class="row">
 
-            <% include ../partials/sidebar.ejs %>
+         <% include ../partials/sidebar.ejs %>
 
-            <div class="main_col col-md" role="main">
-                <div class="row">
-                    <h1 class="col-12"><%= title %></h1>
-                </div>
-
-                <div class="row">
-                    <a href="/admin/landlord/create" class="col-4 btn">Create New Landlord</a>
-                </div>
-                <div class="row">
-
-                    <% if (results) { %>
-                    <div class="col-12 list-group">
-                        <div class="list-group-item list-group-item-dark header">
-                            <div class="row">
-                                <div class="col">First Name</div> 
-                                <div class="col">Last Name</div> 
-                                <div class="col">Email</div>
-                            </div>                                    
-                        </div>
-                        
-                        <% results.forEach(function(r) { %>
-                        <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
-                            <div class="row">
-                                <div class="col"><%= r.first_name %></div> 
-                                <div class="col"><%= r.last_name %></div> 
-                                <div class="col"><%= r.email %></div> 
-                            </div>                                   
-                        </a>
-                        <% }); %>
-                        
-                    </div>
-                    <% } else { %>
-                    <div class="col-12"><div class="row">No users to display.</div></div>
-                    <% } %>
-
-                </div>
-                <br />
+         <div class="main_col col-md" role="main">
+            <div class="row">
+               <h1 class="col-12"><%= title %></h1>
             </div>
-        </div>
-    </div>
+            <div class="clearfix">&nbsp;</div>
+
+            <div class="row">
+               <div class="col-12">
+                  <button class="btn btn-outline-secondary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                     Create New Landlord
+                  </button>
+               </div>
+            </div>
+            <div class="collapse" id="collapseExample">
+               <div class="clearfix">&nbsp;</div>
+               <form method="post" action="/admin/landlord">
+                  <div class="form-row">
+                     <div class="col-md-6 mb-3">
+                        <label for="first_name">First Name</label>
+                        <input type="text" class="form-control" placeholder="First name" name="first_name" id="first_name" maxlength="30" required>
+                     </div>
+                     <div class="col-md-6 mb-3">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last name" name="last_name" id="last_name" maxlength="30" required>
+                     </div>
+                  </div>
+                  <div class="form-group">
+                     <label for="email">Email</label>
+                     <input type="text" class="form-control" placeholder="Email" name="email" id="email" maxlength="30" required>
+                  </div>
+                  <button type="submit" class="btn btn-primary">Create</button>
+               </form>
+            </div>
+            <div class="clearfix">&nbsp;</div>
+
+            <div class="row">
+
+               <% if (results) { %>
+               <div class="col-12 list-group">
+                  <div class="list-group-item list-group-item-dark header">
+                     <div class="row">
+                        <div class="col">First Name</div> 
+                        <div class="col">Last Name</div> 
+                        <div class="col">Email</div>
+                     </div>                                    
+                  </div>
+                  
+                  <% results.forEach(function(r) { %>
+                  <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
+                     <div class="row">
+                        <div class="col"><%= r.first_name %></div> 
+                        <div class="col"><%= r.last_name %></div> 
+                        <div class="col"><%= r.email %></div> 
+                     </div>                                   
+                  </a>
+                  <% }); %>
+                  
+               </div>
+               <% } else { %>
+               <div class="col-12"><div class="row">No users to display.</div></div>
+               <% } %>
+
+            </div>
+            <br />
+         </div>
+      </div>
+   </div>
 
 </body>
 </html>

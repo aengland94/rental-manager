@@ -15,3 +15,11 @@ module.exports.getAllLandlordsSafe = async () => {
 
    return (result) ? result.rows : null;
 }
+
+module.exports.create = async (first_name, last_name, email, cb) => {
+   const text = 'INSERT INTO users (first_name, last_name, email, ' +
+      'created_by) VALUES ($1, $2, $3, $4)';
+   const values = [ first_name, last_name, email, cb ];
+
+   await model.query2(text, values);
+}
