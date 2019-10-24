@@ -1,46 +1,46 @@
 <div class="col-lg-2 col-md-3 sidebar">
-    <div class="clearfix">&nbsp;</div>
+   <div class="clearfix">&nbsp;</div>
 
-    <!-- sidebar menu -->
-    <div id="menu">
-        <div class="row btn btn-default sidebar-btn"> <span>Menu <i class="fa fa-chevron-down"></i></span></div>
-    </div>
-    <div id="menuOpts">
+   <!-- sidebar menu -->
+   <div class="card" id="menu">
+      <div class="btn btn-secondary sidebar-btn"> <span>Menu <i class="fa fa-chevron-down"></i></span></div>
+   </div>
+   <div class="card" id="menuOpts">
 
-        <!-- settings dropdown -->
-        <div class="row btn btn-default sidebar-btn" id="settings"><span><i class="fa fa-cog" aria-hidden="true"></i> Settings <i class="fa fa-chevron-down"></i></span></div>
-        <div id="settingsOpts">
-            <a class="row btn btn-default sidebar-btn" href="/admin/landlord/"><span>&emsp; Landlord</span></a>
-            <a class="row btn btn-default sidebar-btn" href="/admin/rental/"><span>&emsp; Rental</span></a>
-            <a class="row btn btn-default sidebar-btn" href="/admin/tenant/"><span>&emsp; Tenant</span></a>
-            <a class="row btn btn-default sidebar-btn" href="/admin/unit/"><span>&emsp; Unit</span></a>
-            <a class="row btn btn-default sidebar-btn" href="/admin/user/"><span>&emsp; User</span></a>
-        </div>
-        <!-- end settings dropdown -->
+      <!-- settings dropdown -->
+      <div class="btn btn-dark sidebar-btn" id="settings"><span><i class="fa fa-cog" aria-hidden="true"></i> Settings <i class="fa fa-chevron-down"></i></span></div>
+      <nav class="nav flex-column" id="settingsOpts">
+         <a class="btn btn-light sidebar-btn" href="/admin/landlord/"><span>&emsp; Landlord</span></a>
+         <a class="btn btn-light sidebar-btn" href="/admin/rental/"><span>&emsp; Rental</span></a>
+         <a class="btn btn-light sidebar-btn" href="/admin/tenant/"><span>&emsp; Tenant</span></a>
+         <a class="btn btn-light sidebar-btn" href="/admin/unit/"><span>&emsp; Unit</span></a>
+         <a class="btn btn-light sidebar-btn" href="/admin/user/"><span>&emsp; User</span></a>
+      </nav>
+      <!-- end settings dropdown -->
 
-        <!-- admin dropdown -->
-        <div class="row btn btn-default sidebar-btn" id="admin"><span><i class="fa fa-lock" aria-hidden="true"></i> Admin <i class="fa fa-chevron-down"></i></span></div>
-        <div id="adminOpts">  
-            <a class="row btn btn-default sidebar-btn" href="/admin/report/"><span>&emsp;<i class="fa fa-table" aria-hidden="true"></i> Report</span></a>
-        </div>
-        <!-- end settings dropdown -->   
-    </div>
-    <!-- end sidebar menu -->
+      <!-- admin dropdown -->
+      <div class="btn btn-dark sidebar-btn" id="admin"><span><i class="fa fa-lock" aria-hidden="true"></i> Admin <i class="fa fa-chevron-down"></i></span></div>
+      <nav class="nav flex-column" id="adminOpts">  
+         <a class="btn btn-light sidebar-btn" href="/admin/report/"><span>&emsp;<i class="fa fa-table" aria-hidden="true"></i> Report</span></a>
+      </nav>
+      <!-- end settings dropdown -->   
+   </div>
+   <!-- end sidebar menu -->
 </div>
 
 
 <script>
-    $(function(){
-        $('#admin').click(function() {
-            $('#adminOpts').toggle('slow');
-        });
+   $(function(){
+      $('#admin').click(function() {
+         $('#adminOpts').toggle('slow');
+      });
 
-        $('#settings').click(function() {
-            $('#settingsOpts').toggle('slow');
-        });
+      $('#settings').click(function() {
+         $('#settingsOpts').toggle('slow');
+      });
 
-        $('#menu').click(function() {
-            $('#menuOpts').toggle('slow');
-        });
-    });
+      $('#menu').click(function() {
+         $('#menuOpts').toggle('slow');
+      });
+   });
 </script>
