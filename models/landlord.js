@@ -16,6 +16,13 @@ module.exports.getAllLandlordsSafe = async () => {
    return (result) ? result.rows : null;
 }
 
+module.exports.getAsForeignKeyOptions = async () => {
+   const queryString = 'SELECT id, email FROM landlords';
+   const result = await model.query1(queryString);
+
+   return (result) ? result.rows : null;
+}
+
 module.exports.create = async (first_name, last_name, email, cb) => {
    const text = 'INSERT INTO users (first_name, last_name, email, ' +
       'created_by) VALUES ($1, $2, $3, $4)';

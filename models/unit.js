@@ -16,6 +16,13 @@ module.exports.getAllUnitsSafe = async () => {
    return (result) ? result.rows : null;
 }
 
+module.exports.getAsForeignKeyOptions = async () => {
+   const queryString = 'SELECT id, street_address FROM units';
+   const result = await model.query1(queryString);
+
+   return (result) ? result.rows : null;
+}
+
 module.exports.create = async (street_address, city, state, zip_code, landlord_id, cb) => {
    const text = 'INSERT INTO users (street_address, city, state, zip_code, ' +
       'landlord_id, created_by) VALUES ($1, $2, $3, $4, $5, $6)';

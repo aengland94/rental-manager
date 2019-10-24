@@ -51,6 +51,16 @@
                         <input type="text" class="form-control" placeholder="XXXXX" name="zip_code" id="zip_code" maxlength="5" required>
                      </div>
                   </div>
+                  <div class="form-group">
+                     <select class="custom-select mb-3" name="landlord_id" id="landlord_id" required>
+                        <option selected>Landlord</option>
+
+                        <% landlords.forEach(function(l) { %>
+                        <option value=<%= l.id %>><%= l.email %></option>
+                        <% } %>
+                        
+                     </select>
+                  </div>
                   <button type="submit" class="btn btn-primary">Create</button>
                </form>
             </div>

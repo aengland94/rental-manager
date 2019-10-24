@@ -1,9 +1,13 @@
 const Unit = require('../models/unit');
+const Landlord = require('../models/landlord');
 
 module.exports.index = async (req, res) => {
    try {
       const units = await Unit.getAllUnitsBasic();
-      res.render('admin/unit/index', { title: "Unit", results: units });
+      const landlords = await Landlord.getAsForeignKeyOptions();
+      res.render('admin/unit/index', { title: "Unit", 
+                                       results: units,
+                                       landlords: landlords });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);

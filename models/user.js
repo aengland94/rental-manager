@@ -17,6 +17,13 @@ module.exports.getAllUsersSafe = async () => {
    return (result) ? result.rows : null;
 }
 
+module.exports.getAsForeignKeyOptions = async () => {
+   const queryString = 'SELECT id, username FROM users';
+   const result = await model.query1(queryString);
+
+   return (result) ? result.rows : null;
+}
+
 module.exports.create = async (first_name, last_name, email, username, password, cb) => {
    const text = 'INSERT INTO users (first_name, last_name, email, username, ' +
       'password, created_by) VALUES ($1, $2, $3, $4, $5, $6)';
