@@ -2,6 +2,11 @@ body { padding: 0px; }
 nav li{ padding-top: 0px; }
 a { color: inherit; } 
 a.sidebar-btn { text-align: left; }
+#menu { display: none; }
+
+@media only screen and (max-width: 767px) {
+    #menu { display: block; }     
+}
 
 footer{
     position: fixed;
