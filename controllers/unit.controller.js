@@ -37,7 +37,7 @@ module.exports.create = async (req, res) => {
    }
    console.log('req.body.zip_code: ' + req.body.zip_code);
    if (req.body.zip_code) {
-      username = req.body.zip_code;
+      zip_code = req.body.zip_code;
       console.log('zip_code: ' + zip_code);
    }
 
