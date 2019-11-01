@@ -15,7 +15,7 @@ module.exports.show = (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
-   let first_name, last_name, email, username, password;
+   let first_name, last_name, email, username;
 
    if (req.body.first_name) {
       first_name = req.body.first_name;
@@ -33,13 +33,10 @@ module.exports.create = async (req, res) => {
       username = req.body.username;
    }
 
-   // TODO: auto-generate temp password for new users
-   password = 'secret';
-
    if (first_name && last_name && email && username && password) {
       // TODO: have created_by be the user currently signed in
       console.log('Creating new User');
-      await User.create(first_name, last_name, email, username, password, 1);
+      await User.create(first_name, last_name, email, username, 1);
       // TODO: send activation email to new user
    }
    console.log('Redirecting to /admin/user');

@@ -51,6 +51,16 @@
                         <input type="text" class="form-control" placeholder="XXX.XXX.XXXX" name="phone_number" id="phone_number" maxlength="12" required>
                      </div>
                   </div>
+                  <div class="form-group">
+                     <select class="custom-select mb-3" name="rental_id" id="rental_id" required>
+                        <option selected>Rental</option>
+
+                        <% rentals.forEach(function(rental) { %>
+                        <option value=<%= rental.id %>><%= rental.display_name %></option>
+                        <% }); %>
+
+                     </select>
+                  </div>
                   <button type="submit" class="btn btn-primary">Create</button>
                </form>
             </div>
@@ -58,7 +68,7 @@
 
             <div class="row">
 
-               <% if (results) { %>
+               <% if (tenants) { %>
                <div class="col-12 list-group">
                   <div class="list-group-item list-group-item-dark header">
                      <div class="row">
@@ -68,12 +78,12 @@
                      </div>                                    
                   </div>
                         
-                  <% results.forEach(function(r) { %>
-                  <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
+                  <% tenants.forEach(function(tenant) { %>
+                  <a href=<%= "/admin/user/" +  tenant.id %> class="list-group-item list-group-item-action">
                      <div class="row">
-                        <div class="col"><%= r.first_name %></div> 
-                        <div class="col"><%= r.last_name %></div> 
-                        <div class="col"><%= r.email %></div> 
+                        <div class="col"><%= tenant.first_name %></div> 
+                        <div class="col"><%= tenant.last_name %></div> 
+                        <div class="col"><%= tenant.email %></div> 
                      </div>                                   
                   </a>
                   <% }); %>

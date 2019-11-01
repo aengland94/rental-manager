@@ -51,6 +51,16 @@
                         <input type="text" class="form-control" placeholder="$XXX" name="rate" id="rate" maxlength="6" required>
                      </div>
                   </div>
+                  <div class="form-group">
+                     <select class="custom-select mb-3" name="unit_id" id="unit_id" required>
+                        <option selected>Unit</option>
+
+                        <% units.forEach(function(unit) { %>
+                        <option value=<%= unit.id %>><%= unit.street_address %></option>
+                        <% }); %>
+
+                     </select>
+                  </div>
                   <button type="submit" class="btn btn-primary">Create</button>
                </form>
             </div>
@@ -58,7 +68,7 @@
 
             <div class="row">
 
-               <% if (results) { %>
+               <% if (rentals) { %>
                <div class="col-12 list-group">
                   <div class="list-group-item list-group-item-dark header">
                      <div class="row">
@@ -67,12 +77,12 @@
                      </div>                                    
                   </div>
                         
-                  <% results.forEach(function(r) { %>
-                  <a href=<%= "/admin/rental/" +  r.id %> class="list-group-item list-group-item-action">
+                  <% rentals.forEach(function(rental) { %>
+                  <a href=<%= "/admin/rental/" +  rental.id %> class="list-group-item list-group-item-action">
                      <div class="row">
-                        <div class="col"><%= r.display_name %></div> 
+                        <div class="col"><%= rental.display_name %></div> 
 
-                           <% if (r.vacant) { %>
+                           <% if (rental.vacant) { %>
                            <div class="col">Yes</div> 
                            <% } else { %>
                            <div class="col">No</div> 

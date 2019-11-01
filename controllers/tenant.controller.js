@@ -1,9 +1,13 @@
 const Tenant = require('../models/tenant');
+const Rental = require('../models/rental');
 
 module.exports.index = async (req, res) => {
    try {
       const tenants = await Tenant.getAllTenantsBasic();
-      res.render('admin/tenant/index', { title: "Tenant", results: tenants });
+      const rentals = await Rental.getAsForeignKeyOptions();
+      res.render('admin/unit/index', { title: "Unit", 
+                                       tenants: tenants,
+                                       rentals: rentals });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
@@ -15,7 +19,7 @@ module.exports.show = (req, res) => {
 }
 
 module.exports.create = async (req, res) => {
-   let first_name, last_name, email, phone_number, rental_id, password;
+   let first_name, last_name, email, phone_number, rental_id;
 
    if (req.body.first_name) {
       first_name = req.body.first_name;
@@ -37,14 +41,11 @@ module.exports.create = async (req, res) => {
       rental_id = req.body.rental_id;
    }
 
-   // TODO: auto-generate temp password for new tenants
-   password = 'secret';
-
    if (first_name && last_name && email && phone_number && rental_id) {
       // TODO: have created_by be the user currently signed in
       console.log('Creating new Tenant');
       await Tenant.create(
-         first_name, last_name, email, phone_number, password, rental_id, 1);
+         first_name, last_name, email, phone_number, rental_id, 1);
       // TODO: send activation email to user tenant
    }
    console.log('Redirecting to /admin/tenant');

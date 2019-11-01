@@ -24,11 +24,11 @@ module.exports.getAsForeignKeyOptions = async () => {
    return (result) ? result.rows : null;
 }
 
-module.exports.create = async (first_name, last_name, email, username, password, cb) => {
+module.exports.create = async (first_name, last_name, email, username, cb) => {
    const text = 'INSERT INTO users (first_name, last_name, email, username, ' +
-      'password, created_by) VALUES ($1, $2, $3, $4, $5, $6)';
+      'created_by) VALUES ($1, $2, $3, $4, $5)';
    // TODO: hash password
-   const values = [ first_name, last_name, email, username, password, cb ];
+   const values = [ first_name, last_name, email, username, cb ];
 
    await model.query2(text, values);
 }
