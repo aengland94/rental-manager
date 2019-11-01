@@ -25,7 +25,7 @@ module.exports.getAsForeignKeyOptions = async () => {
 }
 
 module.exports.create = async (display_name, apt_number, description, rate, unit_id, cb) => {
-   const text = 'INSERT INTO users (display_name, apt_number, description, rate, ' +
+   const text = 'INSERT INTO rentals (display_name, apt_number, description, rate, ' +
       'unit_id, created_by) VALUES ($1, $2, $3, $4, $5, $6)';
    const values = [ display_name, apt_number, description, rate, unit_id, cb ];
 
