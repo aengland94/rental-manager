@@ -3,7 +3,8 @@ const User = require('../models/user');
 module.exports.index = async (req, res) => {
    try {
       const users = await User.getAllUsersBasic();
-      res.render('admin/user/index', { title: "User", users: users });
+      res.render('admin/user/index', { title: "User", 
+                                       users: users });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
@@ -11,7 +12,9 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.show = (req, res) => {
-   res.render('admin/index', { title: "User " + req.params.id });
+   const user = await User.getAllSafe(req.params.id);
+   res.render('admin/index', { title: "User Info", 
+                               user: user });
 }
 
 module.exports.create = async (req, res) => {

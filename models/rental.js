@@ -24,6 +24,14 @@ module.exports.getAsForeignKeyOptions = async () => {
    return (result) ? result.rows : null;
 }
 
+module.exports.getAsForeignKeyInfo = async (id) => {
+   const text = 'SELECT id, display_name FROM rentals WHERE id = $1';
+   const values = [ id ];
+   const result = await model.query2(text, values);
+
+   return (result) ? result.rows : null;
+}
+
 module.exports.create = async (display_name, apt_number, description, rate, unit_id, cb) => {
    const text = 'INSERT INTO rentals (display_name, apt_number, description, rate, ' +
       'unit_id, created_by) VALUES ($1, $2, $3, $4, $5, $6)';

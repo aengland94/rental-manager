@@ -17,9 +17,27 @@ module.exports.getAllUsersSafe = async () => {
    return (result) ? result.rows : null;
 }
 
+module.exports.getAllSafe = async (id) => {
+   const text = 'SELECT id, username, first_name, last_name, email, ' + 
+      'created_on, created_by, updated_on, updated_by FROM users ' +
+      'WHERE id = $1';
+   const values = [ id ];
+   const result = await model.query2(text, values);
+
+   return (result) ? result.rows : null;
+}
+
 module.exports.getAsForeignKeyOptions = async () => {
    const queryString = 'SELECT id, username FROM users';
    const result = await model.query1(queryString);
+
+   return (result) ? result.rows : null;
+}
+
+module.exports.getAsForeignKeyInfo = async (id) => {
+   const text = 'SELECT id, username FROM users WHERE id = $1';
+   const values = [ id ];
+   const result = await model.query2(text, values);
 
    return (result) ? result.rows : null;
 }
