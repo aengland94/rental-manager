@@ -58,7 +58,7 @@
 
             <div class="row">
 
-               <% if (results) { %>
+               <% if (users) { %>
                <div class="col-12 list-group">
                   <div class="list-group-item list-group-item-dark header">
                      <div class="row">
@@ -69,13 +69,13 @@
                      </div>                                    
                   </div>
 
-                  <% results.forEach(function(r) { %>
-                  <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
+                  <% users.forEach(function(user) { %>
+                  <a href=<%= "/admin/user/" +  user.id %> class="list-group-item list-group-item-action">
                      <div class="row">
-                        <div class="col-2"><%= r.username %></div>
-                        <div class="col"><%= r.first_name %></div> 
-                        <div class="col"><%= r.last_name %></div> 
-                        <div class="col-4"><%= r.email %></div> 
+                        <div class="col-2"><%= user.username %></div>
+                        <div class="col"><%= user.first_name %></div> 
+                        <div class="col"><%= user.last_name %></div> 
+                        <div class="col-4"><%= user.email %></div> 
                      </div>                                   
                   </a>
                   <% }); %>
