@@ -30,7 +30,7 @@ module.exports.create = async (req, res) => {
    }
 
    if (req.body.phone_number) {
-      username = req.body.phone_number;
+      phone_number = req.body.phone_number;
    }
 
    if (req.body.rental_id) {
@@ -42,6 +42,7 @@ module.exports.create = async (req, res) => {
 
    if (first_name && last_name && email && phone_number && rental_id) {
       // TODO: have created_by be the user currently signed in
+      console.log('Creating new Tenant');
       await Tenant.create(
          first_name, last_name, email, phone_number, password, rental_id, 1);
       // TODO: send activation email to user tenant

@@ -38,6 +38,7 @@ module.exports.create = async (req, res) => {
 
    if (first_name && last_name && email && username && password) {
       // TODO: have created_by be the user currently signed in
+      console.log('Creating new User');
       await User.create(first_name, last_name, email, username, password, 1);
       // TODO: send activation email to new user
    }

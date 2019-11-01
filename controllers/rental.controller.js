@@ -30,7 +30,7 @@ module.exports.create = async (req, res) => {
    }
 
    if (req.body.rate) {
-      username = req.body.rate;
+      rate = req.body.rate;
    }
 
    if (req.body.unit_id) {
@@ -39,6 +39,7 @@ module.exports.create = async (req, res) => {
 
    if (display_name && apt_number && description && rate && unit_id) {
       // TODO: have created_by be the user currently signed in
+      console.log('Creating new Rental');
       await Rental.create(
          display_name, apt_number, description, rate, unit_id, 1);
    }

@@ -31,6 +31,7 @@ module.exports.create = async (req, res) => {
 
    if (first_name && last_name && email) {
       // TODO: have created_by be the user currently signed in
+      console.log('Creating new Landlord');
       await Landlord.create(first_name, last_name, email, 1);
    }
    console.log('Redirecting to /admin/landlord');

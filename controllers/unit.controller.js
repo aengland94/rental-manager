@@ -23,27 +23,22 @@ module.exports.create = async (req, res) => {
 
    if (req.body.street_address) {
       street_address = req.body.street_address;
-      console.log('street_address: ' + street_address);
    }
 
    if (req.body.city) {
       city = req.body.city;
-      console.log('city: ' + city);
    }
 
    if (req.body.state) {
       state = req.body.state;
-      console.log('state: ' + state);
    }
-   console.log('req.body.zip_code: ' + req.body.zip_code);
+   
    if (req.body.zip_code) {
       zip_code = req.body.zip_code;
-      console.log('zip_code: ' + zip_code);
    }
 
    if (req.body.landlord_id) {
       landlord_id = req.body.landlord_id;
-      console.log('landlord_id: ' + landlord_id);
    }
 
    if (street_address && city && state && zip_code && landlord_id) {
