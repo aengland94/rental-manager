@@ -5,7 +5,7 @@ module.exports.index = async (req, res) => {
    try {
       const tenants = await Tenant.getAllTenantsBasic();
       const rentals = await Rental.getAsForeignKeyOptions();
-      res.render('admin/tenant/index', { title: "Unit", 
+      res.render('admin/tenant/index', { title: "Tenant", 
                                        tenants: tenants,
                                        rentals: rentals });
    }  catch (err) {
