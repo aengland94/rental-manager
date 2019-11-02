@@ -11,7 +11,7 @@ module.exports.index = async (req, res) => {
    }
 }
 
-module.exports.show = (req, res) => {
+module.exports.show = async (req, res) => {
    const user = await User.getAllSafe(req.params.id);
    res.render('admin/index', { title: "User Info", 
                                user: user });
