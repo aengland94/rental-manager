@@ -39,7 +39,7 @@ module.exports.getAsForeignKeyInfo = async (id) => {
    const values = [ id ];
    const result = await model.query2(text, values);
 
-   return (result) ? result.rows : null;
+   return (result) ? result.rows[0] : null;
 }
 
 module.exports.create = async (first_name, last_name, email, username, cb) => {

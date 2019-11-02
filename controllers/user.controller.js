@@ -12,9 +12,18 @@ module.exports.index = async (req, res) => {
 }
 
 module.exports.show = async (req, res) => {
-   const user = await User.getAllSafe(req.params.id);
-   res.render('admin/user/show', { title: "User Info", 
-                                   user: user });
+   try {
+      const user = await User.getAllSafe(req.params.id);
+      const created_by = await User.getAsForeignKeyInfo(user.created_by);
+      const updated_by = await User.getAsForeignKeyInfo(user.updated_by);
+      res.render('admin/user/show', { title:      "User Info", 
+                                      user:       user,
+                                      created_by: created_by,
+                                      updated_by: updated_by });
+   }  catch (err) {
+      console.error(err);
+      res.send("Error " + err);
+   }
 }
 
 module.exports.create = async (req, res) => {

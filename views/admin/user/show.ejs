@@ -50,6 +50,30 @@
                      <input type="text" class="form-control-plaintext editable" name="username" id="username" maxlength="30" value=<%= user.username %> required readonly>
                   </div>
                </div>
+               <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                     <label for="created_on">Created On</label>
+                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value=<%= user.created_on %> required readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label for="created_by">Created By</label>
+                     <input type="text" class="form-control-plaintext" name="created_by" id="created_by" maxlength="30" value=<%= created_by.username %> required readonly>
+                  </div>
+               </div>
+
+               <% if (user.updated_on) { %>
+               <div class="form-row">
+                  <div class="col-md-6 mb-3">
+                     <label for="updated_on">Updated On</label>
+                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value=<%= user.updated_on %> required readonly>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                     <label for="updated_by">Updated By</label>
+                     <input type="text" class="form-control-plaintext" name="updated_by" id="updated_by" maxlength="30" value=<%= updated_by.username %> required readonly>
+                  </div>
+               </div>
+               <% } %>
+
                <button type="submit" class="btn btn-primary" id="save_edits" style="display: none;">Save</button>
             </form>
             <div class="clearfix">&nbsp;</div>
