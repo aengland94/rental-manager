@@ -66,10 +66,10 @@ module.exports.edit = async (req, res) => {
       username = req.body.username;
    }
 
-   if (first_name && last_name && email && username) {
+   if (first_name && last_name && email && username && req.params.id) {
       // TODO: have updated_by be the user currently signed in
       console.log('Updating User');
-      await User.update(first_name, last_name, email, username, 1);
+      await User.update(first_name, last_name, email, username, 1, req.params.id);
    }
    console.log('Redirecting to /admin/user/' + req.params.id);
 
