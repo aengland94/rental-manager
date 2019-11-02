@@ -45,8 +45,16 @@ module.exports.getAsForeignKeyInfo = async (id) => {
 module.exports.create = async (first_name, last_name, email, username, cb) => {
    const text = 'INSERT INTO users (first_name, last_name, email, username, ' +
       'created_by) VALUES ($1, $2, $3, $4, $5)';
-   // TODO: hash password
    const values = [ first_name, last_name, email, username, cb ];
+
+   await model.query2(text, values);
+}
+
+module.exports.update = async (first_name, last_name, email, username, ub, id) => {
+   const text = 'UPDATE users SET first_name = $1, last_name = $2, email = $3, ' +
+      'username = $4, updated_by = $5, updated_on = CURRENT_DATE ' + 
+      'WHERE id = $6';
+   const values = [ first_name, last_name, email, username, ub, id ];
 
    await model.query2(text, values);
 }
