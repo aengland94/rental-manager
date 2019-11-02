@@ -16,6 +16,9 @@ module.exports.show = async (req, res) => {
       const user = await User.getAllSafe(req.params.id);
       const created_by = await User.getAsForeignKeyInfo(user.created_by);
       const updated_by = await User.getAsForeignKeyInfo(user.updated_by);
+      const d = new Date(user.created_on);
+      console.log("User created on: " + user.created_on);
+      console.log("User created on: " + d);
       res.render('admin/user/show', { title:      "User Info", 
                                       user:       user,
                                       created_by: created_by,
