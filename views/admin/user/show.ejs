@@ -53,7 +53,7 @@
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="created_on">Created On</label>
-                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value=<%= user.created_on.toLocaleDateString() %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value=<%- user.created_on.toLocaleDateString('en-US', date_options) %> required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="created_by">Created By</label>
@@ -65,7 +65,7 @@
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="updated_on">Updated On</label>
-                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value=<%= user.updated_on.toDateString() %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value=<%- user.updated_on.toLocaleDateString('en-US', date_options) %> required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="updated_by">Updated By</label>
