@@ -24,36 +24,50 @@
             <div class="row">
                <div class="col-12">
                   <button class="btn btn-sm btn-outline-secondary" type="button" id="edit_btn">
-                     Edit User
+                     Edit Rental
                   </button>
                </div>
             </div>
             <div class="clearfix">&nbsp;</div>
-            <form method="post" action=<%= "/admin/user/" + user.id + "/edit" %>>
+            <form method="post" action=<%= "/admin/rental/" + rental.id + "/edit" %>>
                <div class="form-row">
                   <div class="col-md-6 mb-3">
-                     <label for="first_name">First Name</label>
-                     <input type="text" class="form-control-plaintext editable" name="first_name" id="first_name" maxlength="30" value=<%= user.first_name %> required readonly>
+                     <label for="display_name">"Name"</label>
+                     <input type="text" class="form-control-plaintext editable" name="display_name" id="display_name" maxlength="30" value=<%= rental.display_name %> required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
-                     <label for="last_name">Last Name</label>
-                     <input type="text" class="form-control-plaintext editable" name="last_name" id="last_name" maxlength="30" value=<%= user.last_name %> required readonly>
+                     <label for="apt_number">Number</label>
+                     <input type="text" class="form-control-plaintext editable" name="apt_number" id="apt_number" maxlength="6" value=<%= rental.apt_number %> readonly>
                   </div>
                </div>
                <div class="form-row">
                   <div class="col-md-6 mb-3">
-                     <label for="email">Email</label>
-                     <input type="email" class="form-control-plaintext editable" name="email" id="email" maxlength="30" value=<%= user.email %> required readonly>
+                     <label for="description">Description</label>
+                     <input type="text" class="form-control-plaintext editable" name="description" id="description" maxlength="100" value=<%= rental.description %> required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
-                     <label for="username">Username</label>
-                     <input type="text" class="form-control-plaintext editable" name="username" id="username" maxlength="30" value=<%= user.username %> required readonly>
+                     <label for="rate">Monthly Rate</label>
+                     <input type="text" class="form-control-plaintext editable" name="rate" id="rate" maxlength="6" value=<%= rental.rate %> required readonly>
                   </div>
+               </div>
+               <div class="form-group">
+                  <label for="rental_id">Rental</label>
+                  <select class="custom-select mb-3 form-control-plaintext editable" name="unit_id" id="unit_id" required readonly>
+                     
+                     <% units.forEach(function(u) { %>
+                        <% if (u.id === unit.id) { %>
+                        <option value=<%= u.id %> selected><%= u.street_address %></option>
+                        <% } else { %>
+                        <option value=<%= u.id %>><%= u.street_address %></option>
+                        <% } %>                     
+                     <% }); %>
+
+                  </select>
                </div>
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="created_on">Created On</label>
-                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value=<%= user.created_on.toLocaleDateString() %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value=<%= rental.created_on.toLocaleDateString() %> required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="created_by">Created By</label>
@@ -61,11 +75,11 @@
                   </div>
                </div>
 
-               <% if (user.updated_on) { %>
+               <% if (rental.updated_on) { %>
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="updated_on">Updated On</label>
-                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value=<%= user.updated_on.toLocaleDateString() %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value=<%= rental.updated_on.toLocaleDateString() %> required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="updated_by">Updated By</label>
@@ -83,7 +97,7 @@
          </div>
       </div>
    </div>
-   
+
    <script src="/scripts/model_viewer_controller.js"></script>
 </body>
 </html>

@@ -20,9 +20,6 @@ module.exports.show = async (req, res) => {
                              year:    'numeric', 
                              month:   'long', 
                              day:     'numeric' };
-      const d = new Date(user.created_on);
-      console.log("User created on: " + user.created_on);
-      console.log("User created on: " + d);
       res.render('admin/user/show', { title:        "User Info", 
                                       user:         user,
                                       created_by:   created_by,
