@@ -56,7 +56,7 @@
                         <option selected>Landlord</option>
 
                         <% landlords.forEach(function(landlord) { %>
-                        <option value=<%= landlord.id %>><%= landlord.email %></option>
+                        <option value="<%= landlord.id %>"><%= landlord.email %></option>
                         <% }); %>
 
                      </select>
@@ -78,7 +78,7 @@
                   </div>
                         
                   <% units.forEach(function(unit) { %>
-                  <a href=<%= "/admin/unit/" +  unit.id %> class="list-group-item list-group-item-action">
+                  <a href="<%= '/admin/unit/' +  unit.id %>" class="list-group-item list-group-item-action">
                      <div class="row">
                         <div class="col"><%= unit.street_address %></div> 
                         <div class="col"><%= unit.city %></div> 

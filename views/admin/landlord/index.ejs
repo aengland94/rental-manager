@@ -63,7 +63,7 @@
                   </div>
                   
                   <% landlords.forEach(function(landlord) { %>
-                  <a href=<%= "/admin/landlord/" +  landlord.id %> class="list-group-item list-group-item-action">
+                  <a href="<%= '/admin/landlord/' +  landlord.id %>" class="list-group-item list-group-item-action">
                      <div class="row">
                         <div class="col"><%= landlord.first_name %></div> 
                         <div class="col"><%= landlord.last_name %></div> 

@@ -29,25 +29,25 @@
                </div>
             </div>
             <div class="clearfix">&nbsp;</div>
-            <form method="post" action="/admin/unit">
+            <form method="post" action="<%= '/admin/unit/' + unit.id + '/edit' %>">
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="street_address">Street Address</label>
-                     <input type="text" class="form-control-plaintext editable" name="street_address" id="street_address" maxlength="30" value=<%= unit.street_address %> required readonly>
+                     <input type="text" class="form-control-plaintext editable" name="street_address" id="street_address" maxlength="30" value="<%= unit.street_address %>" required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="city">City</label>
-                     <input type="text" class="form-control-plaintext editable" name="city" id="city" maxlength="30"value=<%= unit.city %> required readonly>
+                     <input type="text" class="form-control-plaintext editable" name="city" id="city" maxlength="30"value="<%= unit.city %>" required readonly>
                   </div>
                </div>
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="state">State</label>
-                     <input type="text" class="form-control-plaintext editable" name="state" id="state" maxlength="2" value=<%= unit.state %> required readonly>
+                     <input type="text" class="form-control-plaintext editable" name="state" id="state" maxlength="2" value="<%= unit.state %>" required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="zip_code">Zip Code</label>
-                     <input type="text" class="form-control-plaintext editable" name="zip_code" id="zip_code" maxlength="5" value=<%= unit.zip_code %> required readonly>
+                     <input type="text" class="form-control-plaintext editable" name="zip_code" id="zip_code" maxlength="5" value="<%= unit.zip_code %>" required readonly>
                   </div>
                </div>
                <div class="form-group">
@@ -56,9 +56,9 @@
 
                      <% landlords.forEach(function(l) { %>
                         <% if (l.id === unit.landlord_id) { %>
-                        <option value=<%= l.id %> selected><%= l.email %></option>
+                        <option value="<%= l.id %>" selected><%= l.email %></option>
                         <% } else { %>
-                        <option value=<%= l.id %>><%= l.email %></option>
+                        <option value="<%= l.id %>"><%= l.email %></option>
                         <% } %>                       
                      <% }); %>
 
@@ -67,11 +67,11 @@
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="created_on">Created On</label>
-                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value=<%= unit.created_on.toLocaleDateString() %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="created_on" id="created_on" maxlength="30" value="<%= unit.created_on.toLocaleDateString() %>" required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="created_by">Created By</label>
-                     <input type="text" class="form-control-plaintext" name="created_by" id="created_by" maxlength="30" value=<%= created_by.username %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="created_by" id="created_by" maxlength="30" value="<%= created_by.username %>" required readonly>
                   </div>
                </div>
 
@@ -79,11 +79,11 @@
                <div class="form-row">
                   <div class="col-md-6 mb-3">
                      <label for="updated_on">Updated On</label>
-                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value=<%= unit.updated_on.toLocaleDateString() %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="updated_on" id="updated_on" maxlength="30" value="<%= unit.updated_on.toLocaleDateString() %>" required readonly>
                   </div>
                   <div class="col-md-6 mb-3">
                      <label for="updated_by">Updated By</label>
-                     <input type="text" class="form-control-plaintext" name="updated_by" id="updated_by" maxlength="30" value=<%= updated_by.username %> required readonly>
+                     <input type="text" class="form-control-plaintext" name="updated_by" id="updated_by" maxlength="30" value="<%= updated_by.username %>" required readonly>
                   </div>
                </div>
                <% } %>
