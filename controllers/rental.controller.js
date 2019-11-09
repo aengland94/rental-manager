@@ -92,7 +92,7 @@ module.exports.edit = async (req, res) => {
    if (display_name && apt_number && description && rate && unit_id) {
       // TODO: have updated_by be the user currently signed in
       console.log('Updating Rental');
-      await Rental.create(
+      await Rental.update(
          display_name, apt_number, description, rate, unit_id, 1, req.params.id);
    }
    console.log('Redirecting to /admin/rental/' + req.params.id);

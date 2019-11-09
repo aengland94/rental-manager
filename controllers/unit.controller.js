@@ -66,7 +66,7 @@ module.exports.create = async (req, res) => {
    res.redirect('/admin/unit');
 }
 
-module.exports.create = async (req, res) => {
+module.exports.edit = async (req, res) => {
    let street_address, city, state, zip_code, landlord_id;
 
    if (req.body.street_address) {
@@ -92,7 +92,7 @@ module.exports.create = async (req, res) => {
    if (street_address && city && state && zip_code && landlord_id) {
       // TODO: have updated_by be the user currently signed in
       console.log('Updating Unit');
-      await Unit.create(
+      await Unit.update(
          street_address, city, state, zip_code, landlord_id, 1, req.params.id);
    }
    console.log('Redirecting to /admin/unit/' + req.params.id);
