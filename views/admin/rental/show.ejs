@@ -55,7 +55,7 @@
                   <select class="custom-select mb-3 form-control-plaintext editable" name="unit_id" id="unit_id" required readonly>
                      
                      <% units.forEach(function(u) { %>
-                        <% if (u.id === unit.id) { %>
+                        <% if (u.id === rental.unit_id) { %>
                         <option value=<%= u.id %> selected><%= u.street_address %></option>
                         <% } else { %>
                         <option value=<%= u.id %>><%= u.street_address %></option>

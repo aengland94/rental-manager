@@ -55,7 +55,7 @@
                   <select class="custom-select mb-3 form-control-plaintext editable" name="landlord_id" id="landlord_id" required readonly>
 
                      <% landlords.forEach(function(l) { %>
-                        <% if (l.id === landlord.id) { %>
+                        <% if (l.id === unit.landlord_id) { %>
                         <option value=<%= l.id %> selected><%= l.email %></option>
                         <% } else { %>
                         <option value=<%= l.id %>><%= l.email %></option>

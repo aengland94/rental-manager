@@ -65,7 +65,7 @@
                   <select class="custom-select mb-3 form-control-plaintext editable" name="rental_id" id="rental_id" required readonly>
 
                      <% rentals.forEach(function(r) { %>
-                        <% if (r.id === rental.id) { %>
+                        <% if (r.id === tenant.rental_id) { %>
                         <option value=<%= r.id %> selected><%= r.display_name %></option>
                         <% } else { %>
                         <option value=<%= r.id %>><%= r.display_name %></option>
