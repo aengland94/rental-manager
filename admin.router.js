@@ -1,16 +1,13 @@
 const express = require('express')
 const router = express.Router()
+const AdminAuthMiddleware = require('./middleware/admin.auth.middleware');
 const UserController = require('./controllers/user.controller');
 const LandlordController = require('./controllers/landlord.controller');
 const UnitController = require('./controllers/unit.controller');
 const RentalController = require('./controllers/rental.controller');
 const TenantController = require('./controllers/tenant.controller');
 
-router.use(function adminAuth (req, res, next) {
-   // TODO: add auth check
-   console.log('Checking Admin Auth at: ', Date.now())
-   next()
-})
+router.use(AdminAuthMiddleware.checkAuth)
 
 router.get('/', (req, res) => res.render('admin/index', { title: "Dashboard" }))
 
