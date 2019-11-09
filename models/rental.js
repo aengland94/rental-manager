@@ -51,7 +51,7 @@ module.exports.create = async (display_name, apt_number, description, rate, unit
 }
 
 module.exports.update = async (display_name, apt_number, description, rate, unit_id, ub, id) => {
-   const text = 'UPDATE users SET display_name = $1, apt_number = $2, description = $3, ' +
+   const text = 'UPDATE rentals SET display_name = $1, apt_number = $2, description = $3, ' +
       'rate = $4, unit_id = $5, updated_by = $6, updated_on = CURRENT_DATE ' + 
       'WHERE id = $7';
    const values = [ display_name, apt_number, description, rate, unit_id, ub, id ];
