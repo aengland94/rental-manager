@@ -52,7 +52,7 @@
 
             <div class="row">
 
-               <% if (results) { %>
+               <% if (landlords) { %>
                <div class="col-12 list-group">
                   <div class="list-group-item list-group-item-dark header">
                      <div class="row">
@@ -62,19 +62,19 @@
                      </div>                                    
                   </div>
                   
-                  <% results.forEach(function(r) { %>
-                  <a href=<%= "/admin/user/" +  r.id %> class="list-group-item list-group-item-action">
+                  <% landlords.forEach(function(landlord) { %>
+                  <a href=<%= "/admin/landlord/" +  landlord.id %> class="list-group-item list-group-item-action">
                      <div class="row">
-                        <div class="col"><%= r.first_name %></div> 
-                        <div class="col"><%= r.last_name %></div> 
-                        <div class="col"><%= r.email %></div> 
+                        <div class="col"><%= landlord.first_name %></div> 
+                        <div class="col"><%= landlord.last_name %></div> 
+                        <div class="col"><%= landlord.email %></div> 
                      </div>                                   
                   </a>
                   <% }); %>
                   
                </div>
                <% } else { %>
-               <div class="col-12"><div class="row">No users to display.</div></div>
+               <div class="col-12"><div class="row">No landlords to display.</div></div>
                <% } %>
 
             </div>
