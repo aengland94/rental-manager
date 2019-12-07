@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title><%= title %></title>
+
+   <% include ./partials/header.ejs %>
+
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+   <meta name="google-signin-client_id" content="<%= googleSignInID %>">
+
+</head>
+<body>
+   <div class="container">
+      <div class="row">
+         <div class="main_col col-md" role="main">
+            <div class="row">
+               <h1 class="col-12"><%= title %></h1>
+            </div>
+            <div class="clearfix">&nbsp;</div>
+            <div class="g-signin2" data-onsuccess="onSignIn"></div>
+            <br />
+         </div>
+      </div>
+   </div>
+
+</body>
+</html>
