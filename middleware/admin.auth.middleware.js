@@ -14,8 +14,8 @@ module.exports.loginAdmin = async (req, res) => {
          audience: process.env.GOOGLE_SIGNIN_CLIENT_ID
       });
       const payload = ticket.getPayload();
-      console.log("google payload: " + payload);
-      res.send(payload);
+      console.log("google payload: " + JSON.stringify(payload));
+      res.send(JSON.stringify(payload));
    } catch (err) {
       console.error(err);
       res.send("Error: " + err);
