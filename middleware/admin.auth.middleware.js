@@ -1,5 +1,23 @@
+const {OAuth2Client} = require('google-auth-library');
+const client = new OAuth2Client(GOOGLE_SIGNIN_CLIENT_ID);
+
 module.exports.checkAuth = async (req, res, next) => {
    // TODO: add auth check
-   console.log('Checking Admin Auth at: ', Date.now())
-   next()
+   console.log('Checking Admin Auth at: ', Date.now());
+   next();
+}
+
+module.exports.loginAdmin = async (req, res) => {
+   try {
+      const ticket = await client.verifyIdToken({
+         idToken: req.body.idToken,
+         audience: GOOGLE_SIGNIN_CLIENT_ID
+      });
+      const payload = ticket.getPayload();
+      console.log("google payload: " + payload);
+      res.send(payload);
+   } catch (err) {
+      console.error(err);
+      res.send("Error: " + err);
+   }
 }

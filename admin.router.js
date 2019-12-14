@@ -47,6 +47,9 @@ router.route('/tenant/:id')
 router.route('/tenant/:id/edit')
       .post(TenantController.edit)
 
+router.route('/login')
+      .post(AdminAuthMiddleware.loginAdmin)
+
 router.get('/document', (req, res) => res.render('admin/index', { title: "Documents" }))
 router.get('/payments', (req, res) => res.render('admin/index', { title: "Payments" }))
 
