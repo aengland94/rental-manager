@@ -9,7 +9,8 @@ const TenantController = require('./controllers/tenant.controller');
 
 router.use(AdminAuthMiddleware.checkAuth)
 
-router.get('/', (req, res) => res.render('admin/index', { title: "Dashboard" }))
+router.get('/', (req, res) => res.render('admin/index', { title:    "Dashboard",
+                                                          userName: req.session.userName }))
 
 router.route('/user')
       .get(UserController.index)

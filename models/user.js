@@ -27,6 +27,24 @@ module.exports.getAllSafe = async (id) => {
    return (result) ? result.rows[0] : null;
 }
 
+module.exports.getFromGoogleId = async (google_id) => {
+   const text = 'SELECT id FROM users ' +
+      'WHERE google_id = $1';
+   const values = [ google_id ];
+   const result = await model.query2(text, values);
+
+   return (result) ? result.rows[0] : null;
+}
+
+module.exports.getFromEmail = async (email) => {
+   const text = 'SELECT id FROM users ' +
+      'WHERE email = $1';
+   const values = [ email ];
+   const result = await model.query2(text, values);
+
+   return (result) ? result.rows[0] : null;
+}
+
 module.exports.getAsForeignKeyOptions = async () => {
    const queryString = 'SELECT id, username FROM users';
    const result = await model.query1(queryString);
@@ -55,6 +73,14 @@ module.exports.update = async (first_name, last_name, email, username, ub, id) =
       'username = $4, updated_by = $5, updated_on = CURRENT_DATE ' + 
       'WHERE id = $6';
    const values = [ first_name, last_name, email, username, ub, id ];
+
+   await model.query2(text, values);
+}
+
+module.exports.setGoogleID = async (google_id, id) => {
+   const text = 'UPDATE users SET google_id = $1 ' +
+      'WHERE id = $2';
+   const values = [ google_id, id ];
 
    await model.query2(text, values);
 }
