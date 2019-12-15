@@ -26,7 +26,7 @@ module.exports.loginAdmin = async (req, res) => {
             console.log('Redirecting to /');
             res.redirect('/');
          } else {
-            await User.setGoogleId(payload.sub, currentUser.id);
+            await User.setGoogleID(payload.sub, currentUser.id);
          }
       }
 
