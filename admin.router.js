@@ -7,6 +7,10 @@ const UnitController = require('./controllers/unit.controller');
 const RentalController = require('./controllers/rental.controller');
 const TenantController = require('./controllers/tenant.controller');
 
+router.route('/login')
+      .get((req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" })
+      .post(AdminAuthMiddleware.loginAdmin)
+
 router.use(AdminAuthMiddleware.checkAuth)
 
 router.get('/', (req, res) => res.render('admin/index', { title:    "Dashboard",
@@ -47,9 +51,6 @@ router.route('/tenant/:id')
       .get(TenantController.show)
 router.route('/tenant/:id/edit')
       .post(TenantController.edit)
-
-router.route('/login')
-      .post(AdminAuthMiddleware.loginAdmin)
 
 router.get('/document', (req, res) => res.render('admin/index', { title: "Documents" }))
 router.get('/payments', (req, res) => res.render('admin/index', { title: "Payments" }))
