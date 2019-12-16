@@ -8,7 +8,7 @@ const RentalController = require('./controllers/rental.controller');
 const TenantController = require('./controllers/tenant.controller');
 
 router.route('/login')
-      .get((req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" })
+      .get((req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" }))
       .post(AdminAuthMiddleware.loginAdmin)
 
 router.use(AdminAuthMiddleware.checkAuth)
