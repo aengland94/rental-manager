@@ -26,6 +26,12 @@
             const res = JSON.parse(xhr.responseText);
 
             console.log('Signed in as: ' + xhr.responseText);
+
+            if (res.success) {
+               window.location.pathname.replace('/admin');
+            } else {
+               window.location.pathname.replace('/');
+            }
          };
          xhr.send('idToken=' + id_token);
       }

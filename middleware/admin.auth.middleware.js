@@ -30,7 +30,7 @@ module.exports.loginAdmin = async (req, res) => {
          if (currentUser == null) {
             console.log('Unauthorized user attempt');
             console.log('Redirecting to /');
-            res.send(JSON.stringify({login: false}));
+            res.send(JSON.stringify({success: false}));
          } else {
             await User.setGoogleID(payload.sub, currentUser.id);
          }
@@ -40,10 +40,10 @@ module.exports.loginAdmin = async (req, res) => {
       req.session.userName = payload.given_name;
 
       console.log('Redirecting to /admin');
-      res.send(JSON.stringify({login: true, name: req.session.userName}));
+      res.send(JSON.stringify({success: true, name: req.session.userName}));
       
    } catch (err) {
       console.error(err);
-      res.send(JSON.stringify({login: false, error: err}));
+      res.send(JSON.stringify({success: false, error: err}));
    }
 }
