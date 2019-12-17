@@ -20,6 +20,10 @@ express()
    .get('/', (req, res) => res.render('public/index', { title: "England Rentals" }))
    .use('/admin', admin)
    .get('/login', (req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" }))
+   .get('/logout', (req, res) => {
+      req.session = null;
+      res.render('public/logout', { title: "Loggged Out" });
+   })
    .get('/oauth2callback', (req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" }))
    .post('/oauth2callback', (req, res) => res.redirect('/'))
    .listen(PORT, () => console.log(`Listening on ${ PORT }`))
