@@ -3,8 +3,9 @@ const User = require('../models/user');
 module.exports.index = async (req, res) => {
    try {
       const users = await User.getAllUsersBasic();
-      res.render('admin/user/index', { title: "User", 
-                                       users: users });
+      res.render('admin/user/index', { title:    "User", 
+                                       users:    users,
+                                       userName: req.session.userName });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
@@ -24,7 +25,8 @@ module.exports.show = async (req, res) => {
                                       user:         user,
                                       created_by:   created_by,
                                       updated_by:   updated_by,
-                                      date_options: date_options });
+                                      date_options: date_options,
+                                      userName:     req.session.userName });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);

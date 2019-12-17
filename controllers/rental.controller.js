@@ -7,8 +7,9 @@ module.exports.index = async (req, res) => {
       const rentals = await Rental.getAllRentalsBasic();
       const units = await Unit.getAsForeignKeyOptions();
       res.render('admin/rental/index', { title: "Rental", 
-                                       rentals: rentals,
-                                       units: units });
+                                       rentals:  rentals,
+                                       units:    units,
+                                       userName: req.session.userName });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
@@ -25,7 +26,8 @@ module.exports.show = async (req, res) => {
                                         rental:       rental,
                                         created_by:   created_by,
                                         updated_by:   updated_by,
-                                        units:        units });
+                                        units:        units,
+                                        userName:     req.session.userName });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
