@@ -25,7 +25,7 @@
          xhr.onload = function() {
             const res = JSON.parse(xhr.responseText);
 
-            window.location.pathname = (res.success) ? '/admin' : '/';
+            //window.location.pathname = (res.success) ? '/admin' : '/';
          };
          xhr.send('idToken=' + id_token);
       }
