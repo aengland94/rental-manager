@@ -26,11 +26,14 @@
             const res = JSON.parse(xhr.responseText);
 
             console.log('Signed in as: ' + xhr.responseText);
+            console.log('path: ' + window.location.pathname);
 
             if (res.success) {
                window.location.pathname.replace('/admin');
+               console.log('new path: ' + window.location.pathname);
             } else {
                window.location.pathname.replace('/');
+               console.log('new path: ' + window.location.pathname);
             }
          };
          xhr.send('idToken=' + id_token);
