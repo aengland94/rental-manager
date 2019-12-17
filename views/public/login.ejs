@@ -23,7 +23,9 @@
          xhr.open('POST', '/admin/login');
          xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
          xhr.onload = function() {
-            //console.log('Signed in as: ' + xhr.responseText);
+            const res = JSON.parse(xhr.responseText);
+
+            console.log('Signed in as: ' + xhr.responseText);
          };
          xhr.send('idToken=' + id_token);
       }
