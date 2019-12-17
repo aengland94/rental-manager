@@ -11,11 +11,12 @@
 
    <script type="text/javascript">
       function signOut() {
-         let auth2 = gapi.auth2.getAuthInstance();
-         auth2.signOut().then(() => { console.log('user signed out'); });
+         gapi.load('auth2', () => {
+            gapi.auth2.init({ client_id: "<%= googleSignInID %>" });
+            let auth2 = gapi.auth2.getAuthInstance();
+            auth2.signOut().then(() => { console.log('user signed out'); });
+         }
       }
-
-      signOut();
    </script>
 
 </head>
