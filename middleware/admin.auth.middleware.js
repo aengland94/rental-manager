@@ -9,8 +9,8 @@ module.exports.checkAuth = async (req, res, next) => {
    if (req.session.userId && req.session.userName) {
       next();
    } else {
-      console.log('Redirecting to /login');
-      res.redirect('/login');
+      console.log('Redirecting to /admin/login');
+      res.redirect('/admin/login');
    }
    
 }

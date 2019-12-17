@@ -5,6 +5,19 @@
 
    <% include ./partials/header.ejs %>
 
+   <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+   <meta name="google-signin-client_id" content="<%= googleSignInID %>">
+
+   <script type="text/javascript">
+      function signOut() {
+         let auth2 = gapi.auth2.getAuthInstance();
+         auth2.signOut().then(() => { console.log('user signed out'); });
+      }
+
+      signOut();
+   </script>
+
 </head>
 <body>
    <div class="container">

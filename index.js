@@ -22,7 +22,7 @@ express()
    .get('/login', (req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" }))
    .get('/logout', (req, res) => {
       req.session = null;
-      res.render('public/logout', { title: "Loggged Out" });
+      res.render('public/logout', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Loggged Out" });
    })
    .get('/oauth2callback', (req, res) => res.render('public/login', { googleSignInID: process.env.GOOGLE_SIGNIN_CLIENT_ID, title: "Login" }))
    .post('/oauth2callback', (req, res) => res.redirect('/'))
