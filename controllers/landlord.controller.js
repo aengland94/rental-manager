@@ -4,7 +4,9 @@ const User = require('../models/user');
 module.exports.index = async (req, res) => {
    try {
       const landlords = await Landlord.getAllLandlordsBasic();
-      res.render('admin/landlord/index', { title: "Landlord", landlords: landlords });
+      res.render('admin/landlord/index', { title:     "Landlord", 
+                                           landlords: landlords,
+                                           userName:  req.session.userName });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
@@ -19,7 +21,8 @@ module.exports.show = async (req, res) => {
       res.render('admin/landlord/show', { title:        "Landlord Info", 
                                           landlord:     landlord,
                                           created_by:   created_by,
-                                          updated_by:   updated_by });
+                                          updated_by:   updated_by,
+                                          userName:     req.session.userName });
    }  catch (err) {
       console.error(err);
       res.send("Error " + err);
